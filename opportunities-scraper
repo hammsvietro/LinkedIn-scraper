@@ -30,4 +30,7 @@ wait_elem(browser, By.CLASS_NAME, 'jobs-search-results-list')
 html = browser.page_source;
 
 soup = bs4.BeautifulSoup(html, 'html.parser');
-print(soup.select('.jobs-search-results-list'))
+
+for vaga in soup.select('li'):
+     vagaTitulo = vaga.select_one('a');
+     print(vagaTitulo)
